@@ -1,32 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useContext, useState } from "react";
-import MessageContext from "./context/MessageContext";
+import UserInfoContext from "./context/UserInfoContext";
+import BlogPage from "./components/BlogPage";
 function App() {
-  const [message, setMessage] = useState("Hello, World!");
+  const userInfo = { userName: "Abhishek Ahlawat", isAdmin: "true" };
   return (
-    <div>
-      <MessageContext.Provider value={[message, setMessage]}>
-        <ComponentA />
-      </MessageContext.Provider>
-    </div>
+    <UserInfoContext.Provider value={{ userInfo }}>
+      <BlogPage />
+    </UserInfoContext.Provider>
   );
 }
-
-function ComponentA() {
-  return <ComponentB />;
-}
-
-function ComponentB() {
-  const [message, setMessage] = useContext(MessageContext);
-  return (
-    <div>
-      <h1>{message}</h1>
-      <button onClick={() => setMessage("Hello, React!")}>
-        Change Message
-      </button>
-    </div>
-  );
-}
-
 export default App;
