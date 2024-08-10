@@ -3,9 +3,9 @@ import "./App.css";
 import UserInfoContext from "./context/UserInfoContext";
 import BlogPage from "./components/BlogPage";
 function App() {
-  const userInfo = { userName: "Abhishek Ahlawat", isAdmin: "true" };
+  const userInfo = { userName: "Abhishek Ahlawat", isAdmin: true };
   return (
-    <UserInfoContext.Provider value={{ userInfo }}>
+    <UserInfoContext.Provider value={userInfo}>
       <BlogPage />
     </UserInfoContext.Provider>
   );
